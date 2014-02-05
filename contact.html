@@ -1,0 +1,133 @@
+<!doctype html>
+<!--[if lte IE 8 ]>    <html class="no-js ie8 oldie"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>Southland Public Adjusters | Contact</title>
+  <meta name="description" content="Southland Public Adjuster over 12 years of experience in public adjusting." />
+	<meta name="keywords" content="Southland, Public, Adjuster, Riverside, CA" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="shortcut icon" href="favicon.png" />
+	<link rel="apple-touch-icon" href="images/touch-icon.png" />
+	<link rel="image_src" href="images/touch-icon.png" />
+	<link rel="stylesheet" href="css/style.css" />
+	<!--[if IE]><script type="text/javascript" src="../js/ie.js"></script><![endif]-->
+</head>
+<body>
+	<div class="container">
+		<header id="logo" class="col grid2">
+				<h1 class="shadow"><a href="index.html"><img src="images/logo.png"></a><br /><strong>Southland Public Adjusters</strong></h1>
+			<span id="menu-switch" class="button"></span>
+		</header>
+		<div class="col grid4">
+      <nav id="menu" class="clearfix">
+				<ul>
+					<li>
+						<a href="index.html">Home</a>
+					</li>
+					<li>
+					 <a href="about_us.html">About Us</a>
+					</li>
+					<li>
+					 <a href="public_adjuster.html">Why use a Public Adjuster?</a>
+					</li>
+					<li class="current_page_item"><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div id="heading" class="col grid4">
+			<div class="video-container thumb">
+				<div class="video-wrapper">
+					<div id="gmap" class="map"></div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<section id="content" class="col grid4 push2">
+			<h2>We'd love to hear from you!</h2>
+			<div class="col alpha grid3">
+				<form id="contact_form" action="">
+					<div class="message" style="display:none"><div id="contact_alert" class="alert"></div></div>
+					<label for="name">Name:</label>
+					<input type="text" name="name" id="name" class="full-width help" title="Insert your name" />
+					<label for="email">Email:</label>
+					<input type="email" name="email" id="email" class="full-width help" title="Insert your email" />
+					<label for="message">Message:</label>
+					<textarea name="message" id="message" cols="30" rows="7" class="full-width help" title="Insert your message"></textarea>
+					<input type="submit" value="Send right away" class="button" />
+				</form>
+			</div>
+			<div class="col omega grid1">
+				<p><label>Phone:</label> <a href="#">(951) 453-5827</a></p>
+				<p><label>Email:</label> <a href="mailto:southlandpa@aol.com">southlandpa@aol.com</a></p>
+			<!--	<p><label>Twitter:</label> <a href="#">/twittername</a></p>
+				<p><label>Facebook:</label> <a href="#">/facebookurl</a></p> -->
+			</div>
+		</section>
+		<footer id="footer" class="col grid4 push2">
+			<div class="sep"></div>
+			<div class="col alpha grid3">
+				<p>&copy; 2013 Southland Public Adjusters. All Rights Reserved.<br />California Department of Insurance Approved <a href="http://interactive.web.insurance.ca.gov/webuser/Licw_Indv_Det$.STARTUP?Z_INDV_ID=881715&Z_IL_LIC_NBR=2E11394" target="_blank">Lic# 2E11394</a> | <a href="http://www.insurance.ca.gov/">www.insurance.ca.gov</a></p>
+			</div>
+			<div class="col omega grid1">
+				<p class="social">
+					<a href="#" class="icon rss tooltip" title="RSS Feed">RSS Feed</a>
+					<a href="#" class="icon email tooltip" title="Email">Email</a>
+					<a href="#" class="icon dribbble tooltip" title="Dribbble">Dribbble</a>
+					<a href="#" class="icon twitter tooltip" title="Twitter">Twitter</a>
+					<a href="#" class="icon facebook tooltip" title="Facebook">Facebook</a>
+				</p>
+			</div>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.common.min.js"></script>
+	<script type="text/javascript" src="js/site.js"></script>
+	<script type="text/javascript" src="js/plugins/jquery.forms.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script>
+		jQuery(function(){
+			// initialize ajax form plugin
+			jQuery('#contact_form').ajaxForm({ target: '#contact_alert' });
+
+			// initialize custom gmap
+			var map_name = 'custom_gmap',
+				loc = new google.maps.LatLng(34.00961, -117.373787), // set location
+				marker_pos = new google.maps.LatLng(34.00961, -117.373787), // set marker position
+				marker_title = '1studio architecture',
+				stylers = [{ 
+					"featureType": "all", 
+					"elementType": "all",
+					"stylers": [
+						{ "saturation": "-60" },
+						{ lightness: 10 }
+					]
+				}],
+				mapOptions = {
+					zoom: 15,
+					center: loc,
+					mapTypeId: map_name,
+					disableDefaultUI: true,
+					scrollwheel: false
+				},
+				map = new google.maps.Map(document.getElementById("gmap"), mapOptions),
+				styledMapOptions = {
+					map: map,
+					name: map_name + "_map"
+				},
+				marker = new google.maps.Marker({
+					position: marker_pos,
+					map: map,
+					title: marker_title,
+      				icon: 'images/marker.png'
+				}),
+				custommap = new google.maps.StyledMapType(stylers,styledMapOptions);
+			
+			map.mapTypes.set(map_name, custommap);
+			map.setMapTypeId(map_name);
+		});
+	</script>
+</body>
+</html>
